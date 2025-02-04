@@ -1,48 +1,45 @@
-
-import { IconType } from "react-icons";
-import { RiHome7Line } from "react-icons/ri";
-import { MdOutlinePersonOutline } from "react-icons/md";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { CiFileOn } from "react-icons/ci";
-import { LuChartSpline } from "react-icons/lu";
+import Home from "../../public/svg/home-icon.svg"
+import Notification from "../../public/svg/noti-icon.svg"
+import Statistics from "../../public/svg/diagram-icon.svg"
+import Favorites from "../../public/svg/heart-icon.svg"
+import Subscribers from "../../public/svg/subscriber-icon.svg"
+import Write from "../../public/svg/write.svg"
 
 interface sidebaroptions {
     lable: string,
-    icon: IconType,
+    src: string,
     path: string
 }
 
 export const sidebarOptions: sidebaroptions[] = [
     {
-        icon: RiHome7Line,
+        src: Home,
         lable: "Home",
         path: "/home"
     },
     {
-        icon: MdOutlinePersonOutline,
+        src: Subscribers,
         lable: "Subscribers",
         path: "/subscibers"
     },
     {
-        icon: IoMdNotificationsOutline,
+        src: Notification,
         lable: "Notification",
         path: "/notification"
     },
     {
-        icon: MdOutlineFavoriteBorder,
+        src: Favorites,
         lable: "Favorites",
         path: "/favorites"
     },
     {
-        icon: CiFileOn,
+        src: Write,
         lable: "Write",
         path: "/write"
     },
     {
-        icon: LuChartSpline,
+        src: Statistics,
         lable: "Statistics",
         path: "/statistics"
     },
-
 ]

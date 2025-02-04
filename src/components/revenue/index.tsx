@@ -1,13 +1,14 @@
 import CircularProgress from "../circularProgress"
+import map from "../../../public/svg/map.svg"
 
 const TodayRevenue = () => {
     return (
-        <div className="bg-white rounded-lg p-6">
+        <div className="bg-white rounded-lg p-6 h-fit">
             <h2 className="text-lg font-semibold mb-6">Revenue by Location</h2>
             <div className="flex justify-center mb-8">
                 <img
-                    className="h-[100px] object-contain"
-                    src="https://raw.githubusercontent.com/SyncfusionExamples/nuget-img/master/react/react-map.png"
+                    className=""
+                    src={map}
                     alt="World map showing revenue distribution"
                 />
             </div>

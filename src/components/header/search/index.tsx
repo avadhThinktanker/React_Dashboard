@@ -13,7 +13,7 @@ const Input: React.FC<InputProps> = ({
     placeholder = 'Search..',
     value,
     icon = true,
-    className = "rounded-full border border-gray-600 p-1.5 text-lg ",
+    className = "rounded-full max-w-[198px] border border-[#D7D8DF] p-1.5 text-lg ",
 }) => {
     return (
         <div className="input-container flex relative items-center ">

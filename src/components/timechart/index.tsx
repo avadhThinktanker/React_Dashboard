@@ -2,7 +2,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } fro
 
 const TimeView = () => {
     const data = [
-        { month: 'Jan', value: 0 },
+        { month: 'Jan', value: 10 },
         { month: 'Feb', value: 18 },
         { month: 'Mar', value: 22 },
         { month: 'Apr', value: 25 },
@@ -42,7 +42,7 @@ const TimeView = () => {
                             dataKey="value"
                             stroke="#FF4D4F"
                             strokeWidth={2}
-                            dot={true}
+                            dot={false}
                             activeDot={{ r: 6, fill: "#FF4D4F" }}
                         />
                     </LineChart>

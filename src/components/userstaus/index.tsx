@@ -1,11 +1,10 @@
 import CircularProgress from "../circularProgress"
 
-
 const Today = () => {
     return (
-        <div className="bg-white rounded-lg p-6">
+        <div className="bg-white rounded-lg p-6 h-[352px]">
             <h2 className="text-lg font-semibold mb-6">User Today</h2>
-            <div className="flex items-center gap-9">
+            <div className="flex pt-6 items-center gap-6">
                 <CircularProgress
                     value={573}
                     maxValue={1000}
