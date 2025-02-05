@@ -1,49 +1,68 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
+import React from "react";
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    ResponsiveContainer,
+    Tooltip,
+} from "recharts";
 
-const TimeView = () => {
-    const data = [
-        { month: 'Jan', value: 10 },
-        { month: 'Feb', value: 18 },
-        { month: 'Mar', value: 22 },
-        { month: 'Apr', value: 25 },
-        { month: 'May', value: 30 },
-        { month: 'Jun', value: 35 },
-        { month: 'Jul', value: 32 },
-        { month: 'Aug', value: 38 },
-        { month: 'Sep', value: 28 },
-        { month: 'Oct', value: 35 },
-        { month: 'Nov', value: 30 },
-        { month: 'Dec', value: 25 }
-    ];
+const data = [
+    { month: "Jan", value: 2 },
+    { month: "Feb", value: 5 },
+    { month: "Mar", value: 12 },
+    { month: "Apr", value: 10 },
+    { month: "May", value: 15 },
+    { month: "Jun", value: 18 },
+    { month: "Jul", value: 22 },
+    { month: "Aug", value: 20 },
+    { month: "Sep", value: 17 },
+    { month: "Oct", value: 25 },
+    { month: "Nov", value: 12 },
+    { month: "Dec", value: 50 },
+];
 
+const Timeview: React.FC = () => {
     return (
-        <div className='mt-4' >
-            <div className=" mb-4">
-                <h2 className="text-lg font-semibold">Time View</h2>
-            </div>
-            <div className="h-64">
+        <div className="border-t border-gray-100 pt-6">
+            <h3 className="font-medium mb-4 text-gray-800">Time View</h3>
+            <div className="h-64 w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                    <LineChart
+                        data={data}
+                        margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
+                    >
+                        <CartesianGrid
+                            strokeDasharray="3 3"
+                            vertical={false}
+                            stroke="#eee"
+                        />
                         <XAxis
                             dataKey="month"
-                            axisLine={false}
-                            tickLine={false}
-                            tick={{ fill: '#666', fontSize: 12 }}
+                            tick={{ fontSize: 12, fill: "#666" }}
+                            tickLine={{ stroke: "#ccc" }}
                         />
                         <YAxis
-                            axisLine={true}
-                            tickLine={false}
-                            tick={{ fill: '#666', fontSize: 12 }}
-                            ticks={[15, 20, 25, 30, 35, 40]}
+                            tick={{ fontSize: 12, fill: "#666" }}
+                            tickLine={{ stroke: "#ccc" }}
+                            domain={[0, "auto"]}
+                        />
+                        <Tooltip
+                            contentStyle={{
+                                backgroundColor: "white",
+                                border: "1px solid #ccc",
+                                borderRadius: "4px",
+                            }}
                         />
                         <Line
                             type="monotone"
                             dataKey="value"
-                            stroke="#FF4D4F"
+                            stroke="#FF5961"
                             strokeWidth={2}
-                            dot={false}
-                            activeDot={{ r: 6, fill: "#FF4D4F" }}
+                            dot={{ fill: "#FF5961", strokeWidth: 2 }}
+                            activeDot={{ r: 6 }}
                         />
                     </LineChart>
                 </ResponsiveContainer>
@@ -52,4 +71,4 @@ const TimeView = () => {
     );
 };
 
-export default TimeView;
+export default Timeview;

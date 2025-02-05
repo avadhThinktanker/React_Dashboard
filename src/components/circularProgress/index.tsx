@@ -19,8 +19,8 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
     maxValue = 1000,
     size = 100,
     thickness = 20,
-    primaryColor = "#FF4D4F",
-    backgroundColor = "#F5F5F5",
+    primaryColor = "#FF5961",
+    backgroundColor = "#EDEFF1",
     label = "",
 }) => {
     const percentage = (value / maxValue) * 100;
@@ -32,7 +32,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
 
     return (
         <div className=" inline-block justify-center items-center ">
-            {type === "revenue" && <h1 className="text-center">{label}</h1>}
+            {type === "revenue" && <h1 className="text-center ">{label}</h1>}
             <div className=" relative inline-flex justify-center items-center ">
                 <PieChart width={size + 10} height={size + 10}>
                     <Pie
@@ -44,18 +44,30 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
                         startAngle={90}
                         endAngle={-270}
                         dataKey="value"
+                        cornerRadius={20}
                     >
                         <Cell fill={primaryColor} />
                         <Cell fill={backgroundColor} />
                     </Pie>
                 </PieChart>
-                <div className="absolute  text-center">
-                    <div className="text-2xl font-semibold">
-                        {value}
-                        {type === "revenue" ? "%" : ""}
+                {type === "revenue" && (
+                    <div className="absolute  text-center">
+                        <div className="text-sm">
+                            {value}%
+                        </div>
                     </div>
-                    {!type && <div className="text-gray-500 text-sm ">{label}</div>}
-                </div>
+                )}
+                {
+                    !type && (
+                        <div className="absolute  text-center">
+                            <div className="text-2xl font-semibold">
+                                {value}
+
+                            </div>
+                            <div className="text-gray-500 text-sm ">{label}</div>
+                        </div>
+                    )
+                }
             </div>
         </div>
     );

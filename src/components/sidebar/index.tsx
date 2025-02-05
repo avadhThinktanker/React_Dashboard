@@ -7,10 +7,10 @@ import logout from "../../../public/svg/logout.png";
 const Sidebar = () => {
     return (
         <>
-            <aside className="hidden md:block flex-1 max-w-56 min-h-screen bg-[#151718]">
+            <aside className="hidden md:block flex-1 justify-between max-w-56 min-h-screen bg-[#151718]">
                 <div>
                     {sidebarOptions.map(({ path, src, lable }) => (
-                        <SidemenuOption key={path} path={path} lable={lable} icon={src} />
+                        <SidemenuOption key={src} path={path} lable={lable} icon={src} />
                     ))}
                 </div>
                 <div className="line p-2">
@@ -19,10 +19,10 @@ const Sidebar = () => {
                 <div className="setting-btn">
                     <NavLink
                         to="settings"
-                        className={({ isActive }) => `
-                ${isActive ? "bg-[#ffffff2a] " : " text-gray-500"}`}
+                        className={({ isActive }) => ` text-[#898B8D] hover:bg-[#ffffff2a] hover:text-white
+                ${isActive ? "bg-[#ffffff2a] text-white " : ""}`}
                     >
-                        <div className="flex items-center mt-2 space-x-4 rounded-md px-4 py-3 w-[90%] m-auto text-[#898B8D] hover:bg-[#ffffff2a] hover:text-white">
+                        <div className="flex items-center mt-2 space-x-4 rounded-md px-4 py-3 w-[90%] m-auto ">
                             <img src={settingicon} alt="setting-icon" />
                             <span className="font-medium">Settings</span>
                         </div>
