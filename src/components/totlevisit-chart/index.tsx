@@ -18,7 +18,7 @@ const VisitsChart = () => {
         { day: "30", visits: 3490, forecast: 4300 },
     ];
 
-    const formatYAxis = (value: number) => {
+    const formatYAxis = (value: number): string | number => {
         if (value >= 1000000) {
             return `${(value / 1000000).toFixed(1)}M`;
         } else if (value >= 1000) {
