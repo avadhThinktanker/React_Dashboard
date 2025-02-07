@@ -4,11 +4,17 @@ import {
     XAxis,
     YAxis,
     Tooltip,
-    ResponsiveContainer
-} from 'recharts';
+    ResponsiveContainer,
+} from "recharts";
 
-const VisitsChart = () => {
-    const data = [
+interface DataPoint {
+    day: string;
+    visits: number;
+    forecast: number;
+}
+
+const VisitsChart: React.FC = () => {
+    const data: DataPoint[] = [
         { day: "1", visits: 4000, forecast: 3000 },
         { day: "5", visits: 3000, forecast: 1398 },
         { day: "10", visits: 2000, forecast: 9800 },
@@ -18,13 +24,13 @@ const VisitsChart = () => {
         { day: "30", visits: 3490, forecast: 4300 },
     ];
 
-    const formatYAxis = (value: number): string | number => {
+    const formatYAxis = (value: number): string => {
         if (value >= 1000000) {
             return `${(value / 1000000).toFixed(1)}M`;
         } else if (value >= 1000) {
             return `${(value / 1000).toFixed(0)}K`;
         }
-        return value;
+        return value.toString();
     };
 
     return (
@@ -32,7 +38,9 @@ const VisitsChart = () => {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-6">
                 <div className="flex items-center gap-2">
                     <h2 className=" font-medium">Total Visits</h2>
-                    <span className="text-gray-700 cursor-help hover:text-gray-600 transition-colors">ⓘ</span>
+                    <span className="text-gray-700 cursor-help hover:text-gray-600 transition-colors">
+                        ⓘ
+                    </span>
                 </div>
                 <div className="hidden sm:flex items-center gap-2">
                     <span className="text-red-500 font-medium">November 2022</span>
